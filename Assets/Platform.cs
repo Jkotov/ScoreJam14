@@ -34,6 +34,16 @@ public class Platform : MonoBehaviour
                 {
                     _isConnected = true;
                     transform.rotation = Quaternion.identity;
+                    Vector3 newPosition = connection.GetPosition();
+                    if (connection.IsRightOffset())
+                    {
+                        newPosition.x += GetComponent<BoxCollider2D>().size.x / 2 * transform.localScale.x;
+                    }
+                    else
+                    {
+                        newPosition.x -= GetComponent<BoxCollider2D>().size.x / 2 * transform.localScale.x;
+                    }
+                    transform.position = newPosition;
                     moveable = false;
                     GetComponent<BoxCollider2D>().isTrigger = false;
                     GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
