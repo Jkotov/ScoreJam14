@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
-
+    [SerializeField] private GameObject timer;
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Win()
     {
+        timer.GetComponent<adfa>().time = Time.timeSinceLevelLoad;
         SceneManager.LoadScene("WinScene");
     }
 }
