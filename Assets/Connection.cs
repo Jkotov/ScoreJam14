@@ -9,6 +9,17 @@ public class Connection : MonoBehaviour
     private Vector3 _otherConnectionPosition;
     private bool _isInAnotherConnection = false;
     private bool isRightOther;
+    private GameObject _other;
+
+    public GameObject GetConnection()
+    {
+        return gameObject;
+    }
+
+    public GameObject GetOtherConnection()
+    {
+        return _other;
+    }
     public bool IsConnected()
     {
         return _isInAnotherConnection;
@@ -38,6 +49,7 @@ public class Connection : MonoBehaviour
             _isInAnotherConnection = true;
             _otherConnectionPosition = other.gameObject.transform.position;
             isRightOther = other.GetComponent<Connection>().isRight;
+            _other = other.gameObject;
         }
     }
     
@@ -47,6 +59,7 @@ public class Connection : MonoBehaviour
         {
             Debug.Log("disconnected");
             _isInAnotherConnection = false;
+            _other = null;
         }
     }
 

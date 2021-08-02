@@ -17,11 +17,16 @@ public class Platform : MonoBehaviour
     private Connection[] _connections;
     private bool _isConnected = false;
     private bool _awaked = false;
+    private Rigidbody2D _rigidbody2D;
+    private BoxCollider2D _collider2D;
+    private GameObject _bindedSq;
     void Start()
     {
         _rotatable = moveable;
         _camera = Camera.main;
         _connections = GetComponentsInChildren<Connection>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _collider2D = GetComponent<BoxCollider2D>();
     }
 
     void LateUpdate()
@@ -33,21 +38,22 @@ public class Platform : MonoBehaviour
                 if (connection.IsConnected())
                 {
                     _isConnected = true;
-                    transform.rotation = Quaternion.identity;
-                    Vector3 newPosition = connection.GetPosition();
-                    if (connection.IsRightOffset())
-                    {
-                        newPosition.x += GetComponent<BoxCollider2D>().size.x / 2 * transform.localScale.x;
-                    }
-                    else
-                    {
-                        newPosition.x -= GetComponent<BoxCollider2D>().size.x / 2 * transform.localScale.x;
-                    }
-                    transform.position = newPosition;
+                       transform.rotation = Quaternion.identity;
+                        Vector3 newPosition = connection.GetOtherConnection().transform.position;
+                        if (connection.IsRightOffset())
+                        {
+                            newPosition.x += _collider2D.size.x / 2 * transform.localScale.x;
+                        }
+                        else
+                        {
+                            newPosition.x -= _collider2D.size.x / 2 * transform.localScale.x;
+                        }
+
+                        transform.position = newPosition;
                     moveable = false;
-                    GetComponent<BoxCollider2D>().isTrigger = false;
-                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    break ;
+                    _collider2D.isTrigger = false;
+                    _rigidbody2D.bodyType = RigidbodyType2D.Static;
+                    break;
                 }
             }
         }
@@ -63,8 +69,8 @@ public class Platform : MonoBehaviour
 
         if (_awaked && !_isConnected && !_followingMouse)
         {
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            GetComponent<BoxCollider2D>().isTrigger = false;
+            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+            _collider2D.isTrigger = false;
         }
     }
     
@@ -88,10 +94,5 @@ public class Platform : MonoBehaviour
             _followingMouse = false;
             _awaked = true;
         }
-    }
-
-    private IEnumerator EnablePhysic()
-    {
-        yield return new WaitForSeconds(.1f);
     }
 }
