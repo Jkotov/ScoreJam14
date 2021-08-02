@@ -1,5 +1,8 @@
 You work in an orbital station, however suddenly hostile aliens attack, and now the only way you can survive is by reaching the evacuation shuttle! Your laser tool can merge platforms together, use it to create a pathway!
 
+https://jkotov.itch.io/pathmaker  
+
+
 Controls:
 AD - move
 Space - Jump (you can double jump just hit space twice)
@@ -13,11 +16,21 @@ In order to make a platform mid air, drag a platform and attach it to another wh
 We hope you will enjoy this game. Good luck and have fun!
 
 Credits:
-Jobst Kotov - Code
-https://itch.io/profile/jkotov
-Amir Shokirov - Game Design
-https://snicwastaken.itch.io
-Lukas - Sound
-https://pizzaliciousmk1.itch.io
-Taloxasi - Art
-https://taloxasi.itch.io
+Jobst Kotov - Code  
+
+https://itch.io/profile/jkotov  
+
+Amir Shokirov - Game Design  
+
+https://snicwastaken.itch.io  
+
+Lukas - Sound  
+
+https://pizzaliciousmk1.itch.io  
+
+Taloxasi - Art  
+
+https://taloxasi.itch.io  
+
+
+Game for ScoreSpace Jam #14
