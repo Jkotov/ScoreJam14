@@ -7,6 +7,7 @@ TagManager:
   - DangerObject
   - Ground
   - Connection
+  - End
   layers:
   - Default
   - TransparentFX

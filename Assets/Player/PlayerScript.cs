@@ -20,10 +20,20 @@ public class PlayerScript : MonoBehaviour
         {
             GameOver();
         }
+
+        if (other.gameObject.CompareTag("End"))
+        {
+            Win();
+        }
     }
 
     private void GameOver()
     {
         SceneManager.LoadScene("GameOverScene");
+    }
+
+    private void Win()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }
