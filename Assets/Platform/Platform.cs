@@ -39,7 +39,8 @@ public class Platform : MonoBehaviour
                 {
                     _isConnected = true;
                        transform.rotation = Quaternion.identity;
-                        Vector3 newPosition = connection.GetOtherConnection().transform.position;
+                    Vector3 test = new Vector3(0, -0.05f, 0);
+                        Vector3 newPosition = connection.GetOtherConnection().transform.position + test;
                         if (connection.IsRightOffset())
                         {
                             newPosition.x += _collider2D.size.x / 2 * transform.localScale.x;
