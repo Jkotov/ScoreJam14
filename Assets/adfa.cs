@@ -9,12 +9,15 @@ public class adfa : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.Find("TimeText"))
+        {
+            GameObject.Find("TimeText").GetComponent<winTime>().SetTime(time);
+            Destroy(this.gameObject);
+        }
     }
 }

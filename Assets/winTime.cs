@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class winTime : MonoBehaviour
 {
-    private void Start()
+/*    private void Start()
     {
-        GetComponent<UnityEngine.UI.Text>().text = GameObject.Find("Timer").GetComponent<adfa>().time.ToString();
+        SetTime(GameObject.Find("Timer").GetComponent<adfa>().time);
         Destroy(GameObject.Find("Timer"));
+    }
+*/
+    public void SetTime(float time)
+    {
+        GetComponent<UnityEngine.UI.Text>().text = time.ToString();
     }
 }

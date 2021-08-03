@@ -20,6 +20,8 @@ public class Platform : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _collider2D;
     private GameObject _bindedSq;
+    [SerializeField] private AudioClip connectionSound;
+    private AudioSource _audio;
     void Start()
     {
         _rotatable = moveable;
@@ -27,6 +29,7 @@ public class Platform : MonoBehaviour
         _connections = GetComponentsInChildren<Connection>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<BoxCollider2D>();
+        _audio = GetComponent<AudioSource>();
     }
 
     void LateUpdate()
@@ -40,6 +43,7 @@ public class Platform : MonoBehaviour
                     _isConnected = true;
                        transform.rotation = Quaternion.identity;
                     Vector3 test = new Vector3(0, -0.05f, 0);
+                    _audio.PlayOneShot(connectionSound);
                         Vector3 newPosition = connection.GetOtherConnection().transform.position + test;
                         if (connection.IsRightOffset())
                         {
