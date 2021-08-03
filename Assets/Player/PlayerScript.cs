@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Win()
     {
-        timer.GetComponent<adfa>().time = Time.timeSinceLevelLoad;
+        timer.GetComponent<adfa>().time = 205 - Time.timeSinceLevelLoad;
         SceneManager.LoadScene("WinScene");
     }
 }

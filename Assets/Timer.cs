@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<UnityEngine.UI.Text>().text = Time.timeSinceLevelLoad.ToString();
+        GetComponent<UnityEngine.UI.Text>().text = (205 - Time.timeSinceLevelLoad).ToString();
     }
     
 }
