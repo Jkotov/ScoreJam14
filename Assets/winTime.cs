@@ -9,5 +9,6 @@ public class winTime : MonoBehaviour
     private void Start()
     {
         GetComponent<UnityEngine.UI.Text>().text = GameObject.Find("Timer").GetComponent<adfa>().time.ToString();
+        Destroy(GameObject.Find("Timer"));
     }
 }
